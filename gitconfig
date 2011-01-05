@@ -1,0 +1,51 @@
+[user]
+	name = Sergej Braznikov
+	email = 394423+sbraznikov@users.noreply.github.com
+
+[merge]
+    tool = kdiff
+
+[color]
+    interactive = auto
+    ui = auto
+    diff = auto
+    branch = auto
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+[alias]
+    stat = status -s
+    di = diff
+    lg = log -p
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls = ls-files
+    br = branch
+
+[branch]
+    autosetupmerge = true
+
+    excludesfile = ~/.gitignore
+[core]
+	excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true

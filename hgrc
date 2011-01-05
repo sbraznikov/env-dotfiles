@@ -1,0 +1,65 @@
+[ui]
+username=Sergej Braznikov <394423+sbraznikov@users.noreply.github.com>
+merge = vimdiff
+ssh = ssh -C
+
+ignore=~/.hgignore_global
+[defaults]
+diff = --unified 8
+
+[extensions]
+# Color output for the diff, status and qseries commands
+hgext.color =
+# Show revision history alongside an ASCII revision graph
+hgext.graphlog =
+# Compare changes using external programs
+hgext.extdiff =
+# Display children revisions
+children =
+# Show change statistics for mercurial operations per author
+hgext.churn =
+# Browse command output using an external pager
+pager =
+# Show progress bars for some actions
+progress =
+
+[extdiff]
+cmd.kdiff3 =
+
+opts.sourcetreediff=
+cmd.sourcetreediff=/Applications/kdiff3.app/Contents/MacOS/kdiff3
+[pager]
+# Browse command output using an external pager
+pager = LESS='FSRX' less
+
+[merge-tools]
+# vimdiff.executable = vim
+# vimdiff.args = -d $base $local $output $other +close +close
+kdiff3.args = $base $local $other -o $output
+
+sourcetreemerge.gui=False
+sourcetreemerge.premerge=False
+sourcetreemerge.executable=/Applications/kdiff3.app/Contents/MacOS/kdiff3
+sourcetreemerge.args="$base" "$local" "$other" -o "$output"
+sourcetreemerge.checkconflicts=True
+sourcetreemerge.binary=False
+[alias]
+chlog = log --style changelog
+slog = log --style=~/.mercurial/sglog
+
+[color]
+status.modified = magenta bold
+status.added = green bold
+status.removed = red bold
+status.deleted = yellow bold
+status.unknown = blue bold
+status.ignored = black
+diff.diffline = bold
+diff.extended = cyan bold
+diff.file_a = red bold
+diff.file_b = green bold
+diff.hunk = magenta
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = bold white_background

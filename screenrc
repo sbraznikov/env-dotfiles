@@ -1,0 +1,28 @@
+# utf8
+setenv LC_CTYPE en_US.UTF-8
+defutf8 on
+
+# turn off startup message
+startup_message off
+
+# longer scrollback
+defscrollback 15000
+
+# clear screen when exiting a full screen program
+altscreen on
+
+# scrollbars
+termcapinfo xterm* ti@:te@
+
+# monitor activity
+vbell on
+autodetach on
+nonblock on
+
+# status line
+hardstatus alwayslastline
+caption always "%{= kw}%-w%{= c}%n %t%{-}%+w %-= %H %d-%m-%y %C%a"
+
+# default shell
+shell /bin/zsh
+
