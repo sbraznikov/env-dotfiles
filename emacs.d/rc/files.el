@@ -12,7 +12,6 @@
                 ("\\.htm$" . html-mode)
                 ("\\.xhtml$" . html-mode)
                 ("\\.phtml$" . html-mode)
-                ;; ("\\.js\\'" . javascript-mode)
                 ("\\.txt$" . text-mode)
                 ("\\.yml$" . yaml-mode)
                 ("\\.rb$" . ruby-mode)

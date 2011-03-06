@@ -24,7 +24,7 @@ pager =
 progress =
 
 [extdiff]
-cmd.kdiff3 =
+# cmd.kdiff3 =
 
 opts.sourcetreediff=
 cmd.sourcetreediff=/Applications/kdiff3.app/Contents/MacOS/kdiff3
@@ -35,14 +35,15 @@ pager = LESS='FSRX' less
 [merge-tools]
 # vimdiff.executable = vim
 # vimdiff.args = -d $base $local $output $other +close +close
-kdiff3.args = $base $local $other -o $output
+# kdiff3.args = $base $local $other -o $output
 
-sourcetreemerge.gui=False
-sourcetreemerge.premerge=False
-sourcetreemerge.executable=/Applications/kdiff3.app/Contents/MacOS/kdiff3
-sourcetreemerge.args="$base" "$local" "$other" -o "$output"
-sourcetreemerge.checkconflicts=True
-sourcetreemerge.binary=False
+# sourcetreemerge.gui=False
+# sourcetreemerge.premerge=False
+# sourcetreemerge.executable=/Applications/kdiff3.app/Contents/MacOS/kdiff3
+# sourcetreemerge.args="$base" "$local" "$other" -o "$output"
+# sourcetreemerge.checkconflicts=True
+# sourcetreemerge.binary=False
+
 [alias]
 chlog = log --style changelog
 slog = log --style=~/.mercurial/sglog

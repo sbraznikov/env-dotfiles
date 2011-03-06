@@ -4,18 +4,20 @@
 (setq load-path (cons "~/.emacs.d/site-packages/yasnippet" load-path))
 (setq load-path (cons "~/.emacs.d/site-packages/emacs-jabber" load-path))
 (setq load-path (cons "~/.emacs.d/site-packages/twittering-mode" load-path))
-(setq load-path (cons "~/.emacs.d/site-packages/anything-config" load-path))
-(setq load-path (cons "~/.emacs.d/site-packages/anything-config/extensions" load-path))
+(setq load-path (cons "~/.emacs.d/site-packages/org-mode/lisp" load-path))
+(setq load-path (cons "~/.emacs.d/el-get/el-get" load-path))
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
 (when
     (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
+     (expand-file-name "~/.emacs.d/site-packages/package.el"))
   (package-initialize))
+
+(require 'el-get)
+(setq el-get-recipe-path  '("~/.emacs.d/el-get/el-get/recipes/"))
+(setq el-get-sources '(wanderlust))
+(el-get 'sync)
+
+(setq user-emacs-directory "~/.dotfiles/emacs.d")
 
 (require 'flymake)
 (require 'yasnippet-bundle)
@@ -29,7 +31,6 @@
 (load "~/.emacs.d/rc/file-cache.el")
 (load "~/.emacs.d/rc/files.el")
 (load "~/.emacs.d/rc/frame.el")
-(load "~/.emacs.d/rc/notes.el")
 (load "~/.emacs.d/rc/text.el")
 (load "~/.emacs.d/rc/html.el")
 (load "~/.emacs.d/rc/c.el")
@@ -37,19 +38,14 @@
 (load "~/.emacs.d/rc/php.el")
 (load "~/.emacs.d/rc/python.el")
 (load "~/.emacs.d/rc/kbd.el")
-(load "~/.emacs.d/rc/svn.el")
 (load "~/.emacs.d/rc/speedbar.el")
 (load "~/.emacs.d/rc/lisp.el")
 (load "~/.emacs.d/rc/growl.el")
 (load "~/.emacs.d/rc/jabber.el")
 (load "~/.emacs.d/rc/twitter.el")
+(load "~/.emacs.d/rc/erc.el")
+(load "~/.emacs.d/rc/org.el")
+(load "~/.emacs.d/rc/pass.el")
 
-(require 'smex)
-(smex-initialize)
+(desktop-save-mode 1)
 
-;; (require 'anything-startup)
-;; (setq anything-sources
-;;       (list anything-c-source-buffers
-;;             anything-c-source-file-name-history
-;;             anything-c-source-file-cache
-;;             anything-c-source-emacs-commands))

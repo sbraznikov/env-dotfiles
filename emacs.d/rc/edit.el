@@ -32,6 +32,8 @@
  '(x-select-enable-clipboard nil)
  )
 
+(show-paren-mode t)
+
 (defun my-copy-line ()
   (interactive)
   (kill-ring-save (line-beginning-position) (line-end-position))
@@ -106,3 +108,13 @@
 
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers
+
+ (require 'speck)
+(setq speck-engine (quote Hunspell))
+(setq speck-hunspell-language-options
+      (quote (("de" iso-8859-1 nil t nil)
+              ("en" utf-8 nil nil nil)
+              ("ru" koi8-r nil nil nil))))
+(setq speck-hunspell-program "/usr/local/bin/hunspell")
+;; (setq speck-hunspell-library-directory "C:/Program Files (x86)/ErgoEmacs5/hunspell/")
+(setq speck-hunspell-default-dictionary-name "de_DE")
