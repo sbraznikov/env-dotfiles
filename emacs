@@ -5,7 +5,6 @@
 (setq load-path (cons "~/.emacs.d/site-packages/emacs-jabber" load-path))
 (setq load-path (cons "~/.emacs.d/site-packages/twittering-mode" load-path))
 (setq load-path (cons "~/.emacs.d/site-packages/org-mode/lisp" load-path))
-(setq load-path (cons "~/.emacs.d/el-get/el-get" load-path))
 
 (setq user-emacs-directory "~/.dotfiles/emacs.d")
 
