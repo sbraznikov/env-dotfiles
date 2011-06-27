@@ -29,13 +29,16 @@
     untracked = cyan
 
 [alias]
+    co = checkout
     stat = status -s
+    st = status -s
+    br = branch
     di = diff
-    lg = log -p
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
-    br = branch
+    dump = cat-file -p
 
 [branch]
     autosetupmerge = true
@@ -43,9 +46,11 @@
     excludesfile = ~/.gitignore
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = input
+	safecrlf = true
 [difftool "sourcetree"]
 	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
 	trustExitCode = true

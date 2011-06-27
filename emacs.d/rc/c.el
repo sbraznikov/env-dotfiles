@@ -7,6 +7,7 @@
 (setq c-continued-statement-offset 4)
 (setq c-brace-offset -4)
 (setq c-argdecl-indent 0)
+
 (setq c-label-offset -4)
 (setq c-auto-hungry-initial-state 'none)
 (setq c-delete-function 'backward-delete-char)

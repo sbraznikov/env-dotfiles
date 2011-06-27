@@ -5,7 +5,7 @@ source /etc/profile
 # =============================================================================
 cdpath=(~ ..)
 fpath=($fpath ~/.zfunc)
-path=(~/.bin /usr/local/bin /usr/local/sbin /usr/local/git/bin /Applications/XAMPP/xamppfiles/bin /bin /sbin /usr/bin /usr/sbin /home/cubique/bin /usr/local/zend/bin /usr/local/zend/mysql/bin/ .)
+path=(~/.bin /usr/local/bin /usr/local/sbin /usr/local/git/bin /opt/local/bin /opt/local/sbin /Applications/XAMPP/xamppfiles/bin /bin /sbin /usr/bin /usr/sbin /home/cubique/bin /usr/local/zend/bin /usr/local/zend/mysql/bin/ .)
 manpath=(/usr/local/man /usr/share/man)
 
 # =============================================================================
@@ -35,7 +35,7 @@ setopt hist_find_no_dups
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt hist_ignore_space
-setopt hist_no_store
+# setopt hist_no_store
 setopt hist_no_functions
 setopt no_hist_beep
 setopt hist_save_no_dups
@@ -88,7 +88,7 @@ export ZEND_TOOL_INCLUDE_PATH="~/Sites/library/php"
 # =============================================================================
 # alias settings
 # =============================================================================
-alias h='history 100'
+alias h='history'
 alias ..='cd ..'
 alias ll='ls --color=auto -al -F'
 alias l='ls --color=auto -al -F'

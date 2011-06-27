@@ -23,5 +23,10 @@
 
 (require 'color-theme)
 (color-theme-initialize)
+
 (load "~/.emacs.d/site-packages/zenburn.el")
 (color-theme-zenburn)
+
+;; (require 'color-theme-solarized)
+;; (color-theme-solarized-light)
+;; (color-theme-solarized-dark)

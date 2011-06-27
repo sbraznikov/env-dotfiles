@@ -1,3 +1,12 @@
+(setq frame-title-format
+      '(:eval
+        (if buffer-file-name
+            (replace-regexp-in-string
+             (replace-regexp-in-string "\\\\" "/" (getenv "HOME")) "~"
+             (concat (file-name-directory buffer-file-name) "%b"))
+          (buffer-name)
+          )))
+
 (custom-set-variables
  '(inhibit-startup-message t)
  '(default-frame-alist nil)
@@ -32,4 +41,5 @@
 (defalias 'fl 'my-max-frame-fullscren)
 
 (winner-mode t)
-
+;; (windmove-default-keybindings 'meta)
+;; (windmove-default-keybindings)

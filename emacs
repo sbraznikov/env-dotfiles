@@ -7,16 +7,6 @@
 (setq load-path (cons "~/.emacs.d/site-packages/org-mode/lisp" load-path))
 (setq load-path (cons "~/.emacs.d/el-get/el-get" load-path))
 
-(when
-    (load
-     (expand-file-name "~/.emacs.d/site-packages/package.el"))
-  (package-initialize))
-
-(require 'el-get)
-(setq el-get-recipe-path  '("~/.emacs.d/el-get/el-get/recipes/"))
-(setq el-get-sources '(wanderlust))
-(el-get 'sync)
-
 (setq user-emacs-directory "~/.dotfiles/emacs.d")
 
 (require 'flymake)
@@ -24,7 +14,7 @@
 (require 'color-theme)
 
 (load "~/.emacs.d/rc/ido.el")
-(load "~/.emacs.d/rc/dired.el")
+;; (load "~/.emacs.d/rc/dired.el")
 (load "~/.emacs.d/rc/edit.el")
 (load "~/.emacs.d/rc/completion.el")
 (load "~/.emacs.d/rc/colors.el")
@@ -46,6 +36,22 @@
 (load "~/.emacs.d/rc/erc.el")
 (load "~/.emacs.d/rc/org.el")
 (load "~/.emacs.d/rc/pass.el")
+(load "~/.emacs.d/site-packages/workspaces.el")
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
+;; (custom-set-faces
+;;  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "apple" :family "Inconsolata")))))
+
+
+(server-start)
