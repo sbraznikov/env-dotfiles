@@ -82,6 +82,9 @@ let EnhCommentifyPretty = "yes"
 let EnhCommentifyRespectIndent = "yes"
 let EnhCommentifyUseBlockIndent = "yes"
 
+" ruby
+autocmd BufRead *.rb set autoindent tabstop=2 shiftwidth=2 expandtab softtabstop=2 filetype=ruby
+
 " python
 let python_highlight_all = 1
 autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
@@ -89,6 +92,7 @@ autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^
 
 " omnicomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType python set omnifunc=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -106,7 +110,7 @@ nmap <c-h> 0
 nmap <c-t> :tabnew
 nmap <c-b> :bn<CR>
 nmap X ci"
-map <c-t> :e **/
+"map <c-t> :e **/
 vmap < <gv
 vmap > >gv
 vmap > >gv

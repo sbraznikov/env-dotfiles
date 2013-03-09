@@ -2,9 +2,6 @@
 	name = Sergej Braznikov
 	email = 394423+sbraznikov@users.noreply.github.com
 
-[merge]
-    tool = kdiff
-
 [color]
     interactive = auto
     ui = auto
@@ -29,7 +26,8 @@
     untracked = cyan
 
 [alias]
-    co = checkout
+    undo=reset --hard
+    new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
     stat = status -s
     st = status -s
     br = branch
@@ -42,15 +40,9 @@
 
 [branch]
     autosetupmerge = true
-
     excludesfile = ~/.gitignore
 [core]
 	excludesfile = ~/.gitignore_global
-	autocrlf = input
 	safecrlf = true
-[difftool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
+[credential]
+	helper = osxkeychain
