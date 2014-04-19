@@ -1,5 +1,5 @@
 let g:author='Sergej Braznikov'
-let g:email='<sergej.braznikov@symmetrics.de>'
+let g:email='<394423+sbraznikov@users.noreply.github.com>'
 
 filetype on
 filetype plugin on 
@@ -7,6 +7,7 @@ filetype indent on
 syntax on
 
 set guifont=Monaco:h12
+set t_Co=256
 set scrolljump=3
 set scrolloff=3
 set hidden
@@ -41,7 +42,7 @@ set ch=2
 set lazyredraw
 set virtualedit=all
 set diffopt+=iwhite
-set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
+" set stl=%f\ %m\ %r\ Line:%l/%L[%p%%]\ Col:%c\ Buf:%n\ [%b][0x%B]
 set browsedir=buffer
 
 " indenting
@@ -99,21 +100,39 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " keys
-let mapleader = ","
+let mapleader = "\<Space>"
 nmap <leader>l :silent nohl<CR>
-nmap <leader>t <c-]>
-nmap <leader>r :%s/\<<c-r>=expand("<cword>")<cr>\>/
+nnoremap <leader>p :NERDTreeToggle<cr>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>o :CtrlP<CR>
+nnoremap <Leader>d :bd<CR>
+
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+nmap <Leader><Leader> V
 nmap <c-k> 3k
 nmap <c-j> 3j
 nmap <c-l> $
 nmap <c-h> 0
-nmap <c-t> :tabnew
-nmap <c-b> :bn<CR>
-nmap X ci"
-"map <c-t> :e **/
-vmap < <gv
-vmap > >gv
-vmap > >gv
-nmap <silent> ,gw
-     \ :vimgrep /<C-r><C-w>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:set nohls<CR>
 
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'bling/vim-airline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
+Bundle 'ervandew/supertab'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'leshill/vim-json'
+Bundle 'indenthtml.vim'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'chrisbra/csv.vim'
+
+filetype plugin indent on

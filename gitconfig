@@ -28,7 +28,6 @@
 [alias]
     undo=reset --hard
     new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-    stat = status -s
     st = status -s
     br = branch
     di = diff
@@ -37,6 +36,9 @@
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
     dump = cat-file -p
+    co = checkout
+    lg = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold cyan) <%an>%Creset' --abbrev-commit
+
 
 [branch]
     autosetupmerge = true
@@ -46,3 +48,14 @@
 	safecrlf = true
 [credential]
 	helper = osxkeychain
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[push]
+	default = simple
