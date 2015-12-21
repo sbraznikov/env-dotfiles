@@ -118,21 +118,3 @@ nmap <c-k> 3k
 nmap <c-j> 3j
 nmap <c-l> $
 nmap <c-h> 0
-
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-surround'
-Bundle 'ervandew/supertab'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'leshill/vim-json'
-Bundle 'indenthtml.vim'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'chrisbra/csv.vim'
-
-filetype plugin indent on
