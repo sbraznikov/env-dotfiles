@@ -6,34 +6,34 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-(setq load-path (cons "~/.emacs.d" load-path))
+(setq load-path (cons ".emacs.d/lisp" load-path))
 
-;; ido
-(require 'flx-ido)
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
+;; ;; ido
+;; (require 'flx-ido)
+;; (ido-mode 1)
+;; (ido-everywhere 1)
+;; (flx-ido-mode 1)
+;; ;; disable ido faces to see flx highlights.
+;; (setq ido-use-faces nil)
 
-(setq ido-enable-prefix nil
-      ido-everywhere t
-      ido-enable-flex-matching t
-      ido-create-new-buffer 'always
-      ido-use-filename-at-point nil
-      ido-max-prospects 10)
+;; (setq ido-enable-prefix nil
+;;       ido-everywhere t
+;;       ido-enable-flex-matching t
+;;       ido-create-new-buffer 'always
+;;       ido-use-filename-at-point nil
+;;       ido-max-prospects 10)
 
-(setq ido-ignore-buffers (quote ("^ " "*Messages*" "*Buffer" "*Completions" "*Ibuffer" "*.svn-base")))
-(setq ido-ignore-directories (quote ("\\`CVS/" "\\`\\.\\./" "\\`\\./" "\\`svn/")))
-(setq ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`SVN/" "\\`.pyc/" "\\`.svn-base/")))
-(setq ido-confirm-unique-completion t)
-;; (setq ido-enable-prefix t)
+;; (setq ido-ignore-buffers (quote ("^ " "*Messages*" "*Buffer" "*Completions" "*Ibuffer" "*.svn-base")))
+;; (setq ido-ignore-directories (quote ("\\`CVS/" "\\`\\.\\./" "\\`\\./" "\\`svn/")))
+;; (setq ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`SVN/" "\\`.pyc/" "\\`.svn-base/")))
+;; (setq ido-confirm-unique-completion t)
+;; ;; (setq ido-enable-prefix t)
 
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'reverse)
-(setq uniquify-separator "/")
-(setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
-(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+;; (require 'uniquify)
+;; (setq uniquify-buffer-name-style 'reverse)
+;; (setq uniquify-separator "/")
+;; (setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
+;; (setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
 ;; ido end
 
 
@@ -57,38 +57,63 @@
 
 ;; edit
 (custom-set-variables
- '(imenu-auto-rescan t)
- '(diff-default-read-only t)
- '(auto-save-list-file-name nil)
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
+ '(auto-save-list-file-name nil t)
  '(backup-by-copying-when-mismatch t)
- '(grep-find-ignored-directories '("CVS" ".svn" ".hg" "{arch}"))
- '(current-language-environment "UTF-8")
  '(backward-delete-function nil)
+ '(bell-volume 0)
  '(column-number-mode t)
+ '(comment-style (quote indent))
  '(cua-mode t nil (cua-base))
- '(truncate-lines t)
+ '(current-language-environment "UTF-8")
+ '(default-fill-column 79 t)
+ '(default-frame-alist nil)
+ '(default-major-mode (quote text-mode) t)
+ '(diff-default-read-only t)
+ '(flymake-allowed-file-name-masks (quote nil))
+ '(grep-find-ignored-directories (quote ("CVS" ".svn" ".hg" "{arch}")))
+ '(imenu-auto-rescan t)
+ '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
+ '(make-backup-files nil)
+ '(menu-bar-mode nil)
+ '(message-log-max 2500)
+ '(mouse-wheel-follow-mosue (quote t))
+ '(mouse-wheel-mode t)
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1))))
+ '(ns-alternate-modifier nil)
+ '(org-agenda-files (quote ("~/org/todo.org")))
+ '(org-default-notes-file "~/org/notes.org")
+ '(org-directory "~/org/")
+ '(package-selected-packages
+   (quote
+    (yaml-mode json-mode helm org-autolist org-cliplink org-mac-link ox-clip anzu auto-complete expand-line expand-region flx-ido smartparens smex undo-tree volatile-highlights yasnippet zenburn-theme)))
  '(require-final-newline t)
  '(sandart-indent 4)
- '(save-place t nil (saveplace))
- '(truncate-lines t)
- '(size-indication-mode t)
- '(comment-style 'indent)
  '(save-abbrevs nil)
- '(default-major-mode 'text-mode)
- '(default-fill-column 79)
- '(make-backup-files nil)
- '(x-select-enable-clipboard t)
- '(mac-option-modifier nil)
- '(indent-tabs-mode nil)
- '(words-include-escapes t)
- '(tab-width 4)
+ '(save-place t nil (saveplace))
+ '(scroll-bar-mode nil)
+ '(scroll-conservatively 50)
+ '(scroll-margin 3)
+ '(scroll-preserve-screen-position (quote t))
+ '(scroll-step 1)
+ '(select-enable-clipboard nil)
+ '(sgml-basic-offset 4)
+ '(size-indication-mode t)
+ '(sound-alist nil)
  '(speedbar-show-unknown-files t)
  '(speedbar-sort-tags t)
  '(speedbar-use-images nil)
- '(flymake-allowed-file-name-masks (quote nil))
- '(x-select-enable-clipboard nil)
- )
+ '(tab-width 4)
+ '(tool-bar-mode nil)
+ '(truncate-lines t)
+ '(visible-bell 0)
+ '(words-include-escapes t))
 
 (defun my-indent-whole-buffer ()
   (interactive)
@@ -139,31 +164,12 @@
 
 
 ;; frame
-(custom-set-variables
- '(inhibit-startup-message t)
- '(default-frame-alist nil)
- '(menu-bar-mode nil)
- '(mouse-wheel-mode t)
- '(mouse-wheel-progressive-speed nil)
- '(mouse-wheel-scroll-amount '(1 ((shift) . 1)))
- '(mouse-wheel-progressive-speed nil)
- '(mouse-wheel-follow-mosue 't)
- '(scroll-step 1)
- '(messages-buffer-max-lines 2500)
- '(bell-volume 0)
- '(visible-bell 0)
- '(sound-alist nil)
- '(tool-bar-mode nil)
- '(scroll-bar-mode nil)
- '(scroll-conservatively 50)
- '(scroll-preserve-screen-position 't)
- '(scroll-margin 3))
+
 ;; frame end
 
 
 ;; html
-(custom-set-variables
- '(sgml-basic-offset 4))
+
 
 (defun my-html-xml-mode-settings ()
   (interactive)
@@ -237,7 +243,7 @@
 
 (global-anzu-mode +1)
 
-(global-diff-hl-mode)
+;;(global-diff-hl-mode)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
@@ -248,6 +254,7 @@
 (smex-initialize)
 
 (load-theme 'zenburn t)
+(set-default-font "Monaco 12")
 ;; (load-theme 'flatland t)
 
 (require 'auto-complete-config)
@@ -271,3 +278,49 @@
 
 (require 'yasnippet)
 (yas-global-mode 1)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;;; org mode ;;;
+
+
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org\\'". org-mode))
+
+(setq org-todo-keywords
+      '((sequence "TODO" "FEEDBACK" "WAIT" "|" "DONE" "DELEGATED")))
+
+(global-font-lock-mode 1)
+(org-agenda nil "a")
+(setq org-log-done 'time)
+
+(add-to-list 'org-modules 'org-mac-message)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
+(require 'helm-config)
+
+(helm-mode 1)
+
+(setq helm-buffers-fuzzy-matching t)
+(setq helm-M-x-fuzzy-match t)
+(setq helm-imenu-fuzzy-match t)
+(setq helm-apropos-fuzzy-match t)
+
+(require 'helm)
+(defun fu/helm-find-files-navigate-forward (orig-fun &rest args)
+  (if (file-directory-p (helm-get-selection))
+      (apply orig-fun args)
+    (helm-maybe-exit-minibuffer)))
+(advice-add 'helm-execute-persistent-action :around #'fu/helm-find-files-navigate-forward)
+(define-key helm-find-files-map (kbd "<return>") 'helm-execute-persistent-action)
+
+(defun fu/helm-find-files-navigate-back (orig-fun &rest args)
+  (if (= (length helm-pattern) (length (helm-find-files-initial-input)))
+      (helm-find-files-up-one-level 1)
+    (apply orig-fun args)))
+(advice-add 'helm-ff-delete-char-backward :around #'fu/helm-find-files-navigate-back)
