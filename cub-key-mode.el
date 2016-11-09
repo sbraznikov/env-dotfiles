@@ -38,7 +38,7 @@
  	(define-key map [(control down)] 'jump-3-line-down)
 	(define-key map [(control left)] 'backward-word)
 	(define-key map [(control right)] 'forward-word)
-	(define-key map [(control a)] 'org-agenda-list)
+	(define-key map [(control o)] 'org-agenda-list)
 
     (define-key map (kbd "A-1") 'delete-other-windows)
 	(define-key map (kbd "A-2") 'split-window-vertically)

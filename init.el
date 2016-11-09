@@ -70,6 +70,9 @@
  '(comment-style (quote indent))
  '(cua-mode t nil (cua-base))
  '(current-language-environment "UTF-8")
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(default-fill-column 79 t)
  '(default-frame-alist nil)
  '(default-major-mode (quote text-mode) t)
@@ -92,11 +95,11 @@
  '(org-directory "~/org/")
  '(package-selected-packages
    (quote
-    (yaml-mode json-mode helm org-autolist org-cliplink org-mac-link ox-clip anzu auto-complete expand-line expand-region flx-ido smartparens smex undo-tree volatile-highlights yasnippet zenburn-theme)))
+    (smart-mode-line yaml-mode json-mode helm org-autolist org-cliplink org-mac-link ox-clip anzu auto-complete expand-line expand-region flx-ido smartparens smex undo-tree volatile-highlights yasnippet zenburn-theme)))
  '(require-final-newline t)
  '(sandart-indent 4)
  '(save-abbrevs nil)
- '(save-place t nil (saveplace))
+ '(save-place-mode t nil (saveplace))
  '(scroll-bar-mode nil)
  '(scroll-conservatively 50)
  '(scroll-margin 3)
@@ -324,3 +327,25 @@
       (helm-find-files-up-one-level 1)
     (apply orig-fun args)))
 (advice-add 'helm-ff-delete-char-backward :around #'fu/helm-find-files-navigate-back)
+
+;; find aspell and hunspell automatically
+(cond
+ ;; try hunspell at first
+ ;; if hunspell does NOT exist, use aspell
+ ((executable-find "hunspell")
+  (setq ispell-program-name "hunspell")
+  (setq ispell-local-dictionary "de_DE")
+  (setq ispell-local-dictionary-alist
+        ;; Please note the list `("-d" "en_US")` contains ACTUAL parameters passed to hunspell
+        ;; You could use `("-d" "en_US,en_US-med")` to check with multiple dictionaries
+        '(("de_DE" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil ("-d" "de_DE") nil utf-8)
+          )))
+
+ ((executable-find "aspell")
+  (setq ispell-program-name "aspell")
+  ;; Please note ispell-extra-args contains ACTUAL parameters passed to aspell
+  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US"))))
+
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'dark)
+(sml/setup)
