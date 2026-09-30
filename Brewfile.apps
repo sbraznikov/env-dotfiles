@@ -1,0 +1,8 @@
+# GUI apps installed outside Homebrew on the source machine.
+# Optional: ./install.sh --apps  (fails for apps that already exist in /Applications)
+cask "claude"
+cask "google-chrome"
+cask "slack"
+cask "telegram"
+cask "zoom"
+cask "microsoft-teams"

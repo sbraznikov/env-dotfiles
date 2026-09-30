@@ -1,0 +1,112 @@
+onboarding = false
+
+# Herdr's own UI palette — independent of the Ghostty theme.
+[theme]
+name = "catppuccin"
+
+# Distinct background so herdr is recognizable at a glance.
+[theme.custom]
+panel_bg = "#161a2a"
+sidebar_bg = "#10131f"
+
+[ui]
+# Bright accent for the focused pane border, highlights, and navigation UI.
+accent = "#fab387"
+status_indicators = "symbols"
+show_agent_labels_on_pane_borders = true
+# Sidebar shows agents as an attention queue: blocked/done float to the top.
+agent_panel_sort = "priority"
+# Ghostty window/tab title shows the active project and tab.
+window_title = "{workspace} — {tab}"
+
+# Richer sidebar rows for Claude: show what it's currently doing (terminal title).
+[ui.sidebar.agents.rows_by_agent]
+claude = [["state_icon", "workspace", "tab"], ["terminal_title_stripped"], ["agent"]]
+
+[ui.toast]
+# Ghostty supports desktop notifications from the terminal.
+delivery = "terminal"
+delay_seconds = 1
+
+[ui.sound]
+# Sound when a background agent finishes or needs attention.
+enabled = true
+
+[session]
+# Resume Claude/Codex panes into their native sessions after a server restart.
+resume_agents_on_restore = true
+
+[experimental]
+# Keep recent pane screen history across full server restarts.
+pane_history = true
+
+[keys]
+new_tab = "cmd+t"
+close_pane = "cmd+w"
+split_vertical = "cmd+d"
+split_horizontal = "cmd+shift+d"
+cycle_pane_next = "cmd+]"
+cycle_pane_previous = "cmd+["
+next_tab = "cmd+shift+]"
+previous_tab = "cmd+shift+["
+switch_workspace = "cmd+1..9"
+switch_tab = "alt+1..9"
+# Agent navigation: jump straight to the pane that needs you.
+open_notification_target = "cmd+o"
+next_agent = "cmd+j"
+previous_agent = "cmd+k"
+focus_agent = "cmd+alt+1..9"
+
+# Snap the focused pane to 80 columns (splits off a side pane if solo).
+[[keys.command]]
+key = "cmd+shift+f"
+type = "shell"
+command = "~/.config/herdr/bin/pane-fit-80"
+description = "fit pane to 80 columns"
+
+# --- Plugins ---
+
+# herdr-navigator: fuzzy-jump to any workspace/agent/session/directory
+[[keys.command]]
+key = "cmd+p"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
+
+[[keys.command]]
+key = "cmd+b"
+type = "plugin_action"
+command = "herdr-navigator.jump-back"
+description = "jump back to previous workspace"
+
+# herdr-annotate: annotate terminal text / review agent replies
+[[keys.command]]
+key = "cmd+shift+a"
+type = "plugin_action"
+command = "annotate.capture"
+description = "annotate selection"
+
+[[keys.command]]
+key = "cmd+shift+r"
+type = "plugin_action"
+command = "annotate.last"
+description = "review agent's last reply"
+
+[[keys.command]]
+key = "cmd+shift+m"
+type = "plugin_action"
+command = "annotate.manage"
+description = "manage annotations"
+
+# herdr-file-viewer: git-aware read-only file viewer
+[[keys.command]]
+key = "cmd+e"
+type = "plugin_action"
+command = "herdr-file-viewer.open-file-viewer"
+description = "file viewer in split"
+
+[[keys.command]]
+key = "cmd+shift+e"
+type = "plugin_action"
+command = "herdr-file-viewer.open-file-viewer-tab"
+description = "file viewer in own tab"

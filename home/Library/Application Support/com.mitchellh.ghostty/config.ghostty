@@ -1,0 +1,66 @@
+font-family = JetBrains Mono
+font-size = 14
+font-thicken = true
+font-thicken-strength = 20
+
+adjust-cell-height = 5%
+background-opacity = 1
+background-blur-radius = 0
+
+window-theme = auto
+window-colorspace = srgb
+
+macos-titlebar-style = tabs
+macos-titlebar-proxy-icon = hidden
+macos-window-buttons = visible
+
+window-padding-x = 14
+window-padding-y = 12
+window-padding-balance = true
+window-padding-color = background
+
+window-save-state = always
+
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
+
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+right-click-action = context-menu
+confirm-close-surface = true
+
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+scrollback-limit = 10000000
+
+macos-option-as-alt = true
+
+keybind = cmd+t=unbind
+keybind = cmd+w=unbind
+keybind = cmd+d=unbind
+keybind = cmd+shift+d=unbind
+keybind = cmd+[=unbind
+keybind = cmd+]=unbind
+keybind = cmd+shift+[=unbind
+keybind = cmd+shift+]=unbind
+keybind = cmd+1=unbind
+keybind = cmd+digit_1=unbind
+keybind = cmd+2=unbind
+keybind = cmd+digit_2=unbind
+keybind = cmd+3=unbind
+keybind = cmd+digit_3=unbind
+keybind = cmd+4=unbind
+keybind = cmd+digit_4=unbind
+keybind = cmd+5=unbind
+keybind = cmd+digit_5=unbind
+keybind = cmd+6=unbind
+keybind = cmd+digit_6=unbind
+keybind = cmd+7=unbind
+keybind = cmd+digit_7=unbind
+keybind = cmd+8=unbind
+keybind = cmd+digit_8=unbind
+keybind = cmd+9=unbind
+keybind = cmd+digit_9=unbind

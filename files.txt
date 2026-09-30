@@ -1,0 +1,34 @@
+# Paths relative to $HOME that are tracked in home/. Directories are copied recursively.
+# Used by sync.sh (home -> repo) and install.sh (repo -> home).
+
+# Shell
+.zshrc
+.bashrc
+.fzf.zsh
+.fzf.bash
+.config/starship.toml
+
+# Git / SSH (config only, never keys)
+.gitconfig
+.config/git/ignore
+.ssh/config
+
+# Terminal & multiplexers
+Library/Application Support/com.mitchellh.ghostty/config.ghostty
+.config/herdr/config.toml
+.config/herdr/bin/pane-fit-80
+.config/herdr/plugins/config/herdr-navigator/config.toml
+.config/tmux/tmux.conf
+.config/btop/btop.conf
+
+# Editors
+.config/nvim
+.config/zed/settings.json
+.vimrc
+
+# Agents
+.claude/settings.json
+.claude/hooks/herdr-agent-state.sh
+.claude/skills/herdr
+.codex/hooks.json
+.codex/herdr-agent-state.sh

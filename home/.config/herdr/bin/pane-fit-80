@@ -1,0 +1,57 @@
+#!/usr/bin/python3
+"""Snap a herdr pane to 80 columns wide.
+
+Usage: pane-fit-80 [pane_id] [target_cols]
+Without pane_id, acts on the UI-focused pane. If the pane spans the full
+tab width, splits off an empty side pane so the main one becomes 80 cols.
+"""
+import json, subprocess, sys
+
+PANE = sys.argv[1] if len(sys.argv) > 1 else None
+TARGET = int(sys.argv[2]) if len(sys.argv) > 2 else 80
+
+
+def herdr(*args):
+    cmd = ["herdr", *args]
+    out = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+    if out.returncode != 0:
+        sys.exit(f"herdr {' '.join(args)} failed: {out.stderr.strip()}")
+    return json.loads(out.stdout)
+
+
+def get_state():
+    args = ["pane", "layout"] + (["--pane", PANE] if PANE else [])
+    lay = herdr(*args)["result"]["layout"]
+    pid = PANE or lay["focused_pane_id"]
+    rect = next(p["rect"] for p in lay["panes"] if p["pane_id"] == pid)
+    return pid, rect, lay["area"]["width"]
+
+
+pid, rect, total = get_state()
+
+if rect["width"] == TARGET:
+    sys.exit(0)
+
+solo = rect["x"] == 0 and rect["width"] == total
+if solo:
+    if total <= TARGET:
+        sys.exit(0)
+    ratio = TARGET / total
+    herdr("pane", "split", pid, "--direction", "right",
+          "--ratio", f"{ratio:.4f}", "--no-focus")
+    sys.exit(0)
+
+# Resize against a neighbor. Direction = which way the dragged edge moves:
+# dragging the right edge right grows a left-side pane, and vice versa.
+for _ in range(4):
+    pid, rect, total = get_state()
+    delta = TARGET - rect["width"]
+    if delta == 0:
+        break
+    has_right_edge = rect["x"] + rect["width"] < total
+    if has_right_edge:
+        direction = "right" if delta > 0 else "left"
+    else:
+        direction = "left" if delta > 0 else "right"
+    herdr("pane", "resize", "--direction", direction,
+          "--amount", f"{abs(delta) / total:.4f}", "--pane", pid)
