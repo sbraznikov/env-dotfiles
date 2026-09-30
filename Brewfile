@@ -57,8 +57,6 @@ brew "zsh-syntax-highlighting"
 brew "bjarneo/cliamp/cliamp", trusted: true
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
-# Free and open-source web browser
-cask "chromium"
 # OpenAI's coding agent that runs in your terminal
 cask "codex"
 cask "font-jetbrains-mono"
