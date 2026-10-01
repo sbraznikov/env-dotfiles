@@ -36,7 +36,7 @@ shell-integration-features = cursor,sudo,title
 
 scrollback-limit = 10000000
 
-macos-option-as-alt = true
+macos-option-as-alt = left
 
 keybind = cmd+t=unbind
 keybind = cmd+w=unbind
