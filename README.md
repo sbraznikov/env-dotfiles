@@ -1,4 +1,4 @@
-# dotfiles
+# macos-dotfiles
 
 macOS setup: zsh + starship, Ghostty + herdr (agent multiplexer), tmux, LazyVim, Zed, Claude Code, Codex.
 
@@ -17,7 +17,7 @@ I keep the environment reproducible across Macs and keep configuration changes r
 
 ```sh
 xcode-select --install
-git clone https://github.com/sbraznikov/dotfiles.git ~/Development/dotfiles
+git clone https://github.com/sbraznikov/macos-dotfiles.git ~/Development/dotfiles
 cd ~/Development/dotfiles
 ./install.sh          # add --apps to also install GUI apps from Brewfile.apps
 ```
