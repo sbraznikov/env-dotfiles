@@ -12,8 +12,11 @@ fi
 brew bundle --file=Brewfile
 [[ "${1:-}" == "--apps" ]] && brew bundle --file=Brewfile.apps || true
 
+# Enable the staged-content secret check for future commits.
+git config core.hooksPath .githooks
+
 # 2. Configs (repo -> home), backing up anything that differs
-grep -vE '^\s*(#|$)' files.txt | while IFS= read -r p; do
+git ls-files 'home/*' | sed 's|^home/||' | while IFS= read -r p; do
   src="home/$p"; dst="$HOME/$p"
   [[ -e "$src" ]] || continue
   if [[ -e "$dst" ]] && ! diff -rq "$src" "$dst" >/dev/null 2>&1; then

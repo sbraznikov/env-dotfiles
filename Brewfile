@@ -67,3 +67,7 @@ cask "obsidian"
 # Multiplayer code editor
 cask "zed"
 npm "corepack"
+
+# Detect credentials before syncing or committing configs
+brew "gitleaks"
+brew "python"

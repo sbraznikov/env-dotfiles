@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[[rules]]
+id = "lisp-plaintext-password"
+description = "Literal password in Lisp configuration"
+regex = '''(?i):(?:password|passwd|secret|token)\s*\.\s*"([^"\r\n]+)"'''
+secretGroup = 1

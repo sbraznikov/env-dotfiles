@@ -1,34 +1,53 @@
-# Paths relative to $HOME that are tracked in home/. Directories are copied recursively.
-# Used by sync.sh (home -> repo) and install.sh (repo -> home).
-
-# Shell
-.zshrc
+# Explicit files eligible for sync; directories and symlinks are rejected.
+# Git/SSH identity and agent/editor account settings are maintained as templates.
 .bashrc
-.fzf.zsh
-.fzf.bash
-.config/starship.toml
-
-# Git / SSH (config only, never keys)
-.gitconfig
-.config/git/ignore
-.ssh/config
-
-# Terminal & multiplexers
-Library/Application Support/com.mitchellh.ghostty/config.ghostty
-.config/herdr/config.toml
-.config/herdr/bin/pane-fit-80
-.config/herdr/plugins/config/herdr-navigator/config.toml
-.config/tmux/tmux.conf
-.config/btop/btop.conf
-
-# Editors
-.config/nvim
-.config/zed/settings.json
-.vimrc
-
-# Agents
-.claude/settings.json
 .claude/hooks/herdr-agent-state.sh
-.claude/skills/herdr
-.codex/hooks.json
+.claude/skills/herdr/SKILL.md
 .codex/herdr-agent-state.sh
+.config/btop/btop.conf
+.config/git/ignore
+.config/herdr/bin/pane-fit-80
+.config/herdr/config.toml
+.config/herdr/plugins/config/herdr-navigator/config.toml
+.config/nvim/.gitignore
+.config/nvim/.neoconf.json
+.config/nvim/LICENSE
+.config/nvim/README.md
+.config/nvim/init.lua
+.config/nvim/lazy-lock.json
+.config/nvim/lazyvim.json
+.config/nvim/lua/config/autocmds.lua
+.config/nvim/lua/config/keymaps.lua
+.config/nvim/lua/config/lazy.lua
+.config/nvim/lua/config/options.lua
+.config/nvim/lua/config/remote_clipboard.lua
+.config/nvim/lua/plugins/all-themes.lua
+.config/nvim/lua/plugins/disable-news-alert.lua
+.config/nvim/lua/plugins/example.lua
+.config/nvim/lua/plugins/omarchy-theme-hotreload.lua
+.config/nvim/lua/plugins/snacks-animated-scrolling-off.lua
+.config/nvim/lua/plugins/theme.lua
+.config/nvim/omarchy-themes/catppuccin-latte.lua
+.config/nvim/omarchy-themes/catppuccin.lua
+.config/nvim/omarchy-themes/everforest.lua
+.config/nvim/omarchy-themes/flexoki-light.lua
+.config/nvim/omarchy-themes/gruvbox.lua
+.config/nvim/omarchy-themes/hackerman.lua
+.config/nvim/omarchy-themes/kanagawa.lua
+.config/nvim/omarchy-themes/lumon.lua
+.config/nvim/omarchy-themes/matte-black.lua
+.config/nvim/omarchy-themes/nord.lua
+.config/nvim/omarchy-themes/osaka-jade.lua
+.config/nvim/omarchy-themes/retro-82.lua
+.config/nvim/omarchy-themes/rose-pine.lua
+.config/nvim/omarchy-themes/solitude.lua
+.config/nvim/omarchy-themes/tokyo-night.lua
+.config/nvim/plugin/after/transparency.lua
+.config/nvim/stylua.toml
+.config/starship.toml
+.config/tmux/tmux.conf
+.fzf.bash
+.fzf.zsh
+.vimrc
+.zshrc
+Library/Application Support/com.mitchellh.ghostty/config.ghostty

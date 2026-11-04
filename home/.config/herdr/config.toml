@@ -61,7 +61,7 @@ focus_agent = "cmd+alt+1..9"
 [[keys.command]]
 key = "cmd+shift+f"
 type = "shell"
-command = "~/.config/herdr/bin/pane-fit-80"
+command = "\"$HOME/.config/herdr/bin/pane-fit-80\""
 description = "fit pane to 80 columns"
 
 # --- Plugins ---
